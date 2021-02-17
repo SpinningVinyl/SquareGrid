@@ -149,7 +149,7 @@ public class SquareGrid extends Canvas {
 	public void setCellColor(int row, int column, Color color) {
 		if (data.setCellColor(row, column, color)) {
 			drawCell(row, column);
-		};
+		}
 	}
 	
 	// fills the cell with the specified coordinates with the colour specified by the given RGB values
@@ -192,12 +192,7 @@ public class SquareGrid extends Canvas {
 		}
 		double columnWidth = getWidth() / data.getColumns();
 		int column = (int) (x / columnWidth);
-		if (column >= data.getColumns()) {
-			return data.getColumns();
-		}
-		return column;
-		
-		
+		return Math.min(column, data.getColumns());
 	}
 	
 	// this method takes the y coordinate of a pixel in the grid 
@@ -208,10 +203,7 @@ public class SquareGrid extends Canvas {
 		}
 		double rowHeight = getHeight() / data.getRows();
 		int row = (int) (y / rowHeight);
-		if (row >= data.getRows()) {
-			return data.getRows();
-		} 
-		return row;
+		return Math.min(row, data.getRows());
 	}
 	
 	// returns the GridData object
