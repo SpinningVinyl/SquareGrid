@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SquareGrid:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SquareGrid_jar</output-path>
+    <root id="archive" name="SquareGrid.jar">
+      <element id="module-output" name="SquareGrid" />
+    </root>
+  </artifact>
+</component>
