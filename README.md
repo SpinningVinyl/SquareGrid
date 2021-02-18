@@ -1,6 +1,6 @@
 # SquareGrid
 
-![Screenshot of the demo application](demo.png)
+<img src="demo.png" width="412" height="480" />
 
 Currently there is no documentation. The source code of the SquareGrid class is pretty self-explanatory.
 
