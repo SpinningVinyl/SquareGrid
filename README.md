@@ -9,6 +9,7 @@ Check the demo app to get a basic idea on how to use this package.
 ### Projects using this class
 
  * [jTetris](https://github.com/SpinningVinyl/jTetris)
+ * [jPathfinder](https://github.com/SpinningVinyl/jPathfinder)
 
 ### License
 
