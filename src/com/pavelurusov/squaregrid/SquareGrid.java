@@ -2,6 +2,7 @@ package com.pavelurusov.squaregrid;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.stream.Stream;
 
 import javax.imageio.ImageIO;
 
@@ -25,12 +26,12 @@ public class SquareGrid extends Canvas {
 	
 	// === PRIVATE FIELDS ===
 	
-	private int squareSize; // size of individual squares in the grid
+	private final int squareSize; // size of individual squares in the grid
 	
-	private static int minSize = 5; // minimum size of individual squares in the grid
-	private static int defaultSize = 10; // default size of individual squares in the grid
-	private static int defaultRows = 50; // default number of rows...
-	private static int defaultColumns = 50; // ...and columns
+	private final static int minSize = 5; // minimum size of individual squares in the grid
+	private final static int defaultSize = 10; // default size of individual squares in the grid
+	private final static int defaultRows = 50; // default number of rows...
+	private final static int defaultColumns = 50; // ...and columns
 	
 	// this object contains the information about the state of the grid
 	// see also: the GridData class
@@ -285,17 +286,29 @@ public class SquareGrid extends Canvas {
 	
 	// redraws all cells in the grid	
 	private void drawCells() {
+		if (!data.getAlwaysDrawGrid()) {
+			gc.setFill(data.getDefaultColor());
+			gc.fillRect(0, 0, getWidth(), getHeight());
+		}
 		if (Platform.isFxApplicationThread()) {
 			for(int row = 0; row < data.getRows(); row++) {
 				for(int column = 0; column < data.getColumns(); column++) {
-					drawSquare(row, column);
+					if (data.getAlwaysDrawGrid()) {
+						drawSquare(row, column);
+					} else if (data.getCellColor(row, column) != null) {
+						drawSquare(row, column);
+					}
 				}
 			}
 		} else {
 			Platform.runLater(() -> {
 				for(int row = 0; row < data.getRows(); row++) {
 					for (int column = 0; column < data.getColumns(); column++) {
-						drawSquare(row, column);
+						if (data.getAlwaysDrawGrid()) {
+							drawSquare(row, column);
+						} else if (data.getCellColor(row, column) != null) {
+							drawSquare(row, column);
+						}
 					}
 				}
 			});
