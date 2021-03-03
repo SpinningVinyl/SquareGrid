@@ -10,6 +10,7 @@ Check the demo app to get a basic idea on how to use this package.
 
  * [jTetris](https://github.com/SpinningVinyl/jTetris)
  * [jPathfinder](https://github.com/SpinningVinyl/jPathfinder)
+ * [jSnake](https://github.com/SpinningVinyl/jSnake)
 
 ### License
 
